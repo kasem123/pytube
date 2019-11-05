@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Implements a simple wrapper around urlopen."""
-import urllib.request
+#import urllib.request
+from six.moves.urllib import request
 
 from pytube.compat import urlopen
 # 403 forbidden fix
@@ -23,7 +24,7 @@ def get(
     """
 
     # https://github.com/nficano/pytube/pull/465
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    req = request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     response = urlopen(req)
 
     if streaming:
